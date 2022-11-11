@@ -1,0 +1,1548 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(0, #120c56, #000000);
+    font-family: "LemonMilkLight";
+}
+
+a {
+    text-decoration: none;
+}
+
+.line,
+.location,
+.edition {
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.descricao {
+    font-family: "LemonMilkBold";
+}
+
+.layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.logo {
+    position: absolute;
+    z-index: 2;
+    /* filter: invert(1); 
+    
+    interferência na animação :/ 
+
+    */
+}
+
+
+.logo img {
+    width: 300px;
+    margin-top: 20px;
+}
+
+.logo h1 {
+    color: #000;
+    font-size: 40px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.planeta {
+    width: 100%;
+    margin-top: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+
+.planeta img {
+    width: 10rem;
+    transform: rotate(60deg);
+    padding: 80px;
+}
+
+.headerElements {
+    position: absolute;
+    bottom: 50%;
+    right: 300px;
+    width: 150px;
+}
+
+.itensHeader .headerElements:nth-child(2) {
+    position: absolute;
+    bottom: 40%;
+    left: 250px;
+    width: 150px;
+}
+
+.itensHeader .headerElements:nth-child(3) {
+    position: absolute;
+    bottom: 60%;
+    left: 400px;
+    width: 150px;
+}
+
+.itensHeader .headerElements:nth-child(4) {
+    position: absolute;
+    bottom: 60%;
+    left: 420px;
+    width: 65%;
+}
+
+/* Estilizando Barra de Scrool */
+
+body::-webkit-scrollbar {
+    width: 0;
+}
+
+/* body::-webkit-scrollbar-track {
+    background: linear-gradient(0, #000000, #120c56);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(98, 0, 255);
+    border-radius: 20px;
+} */
+
+/* Estilo Menu */
+
+
+.menuHamburguer {
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+    position: fixed;
+    display: block;
+    height: 22px;
+    width: 30px;
+    z-index: 9999;
+}
+
+.menuHamburguer span {
+    position: absolute;
+    display: block;
+    height: 5px;
+    width: 100%;
+    border-radius: 30px;
+    /* background: rgb(98, 0, 255); 
+    
+    Antiga cor
+
+    */
+
+    /* Efeito Neon Básico */
+    transition: 0.25s ease-in-out;
+    background: rgb(255, 255, 255);
+    box-shadow: 1px 1px 12px white;
+
+
+
+}
+
+.menuHamburguer>span:nth-child(1) {
+    top: 0;
+    z-index: 9999;
+    /* Efeito Neon Cores respectivas */
+    background: #ff00c8;
+    box-shadow: 1px 1px 12px #ff00c8;
+}
+
+.menuHamburguer>span:nth-child(2) {
+    top: 8px;
+    width: 80%;
+    z-index: 9999;
+    /* Efeito Neon Cores respectivas */
+    background: #ff00c8;
+    box-shadow: 1px 1px 12px #1eff00;
+
+}
+
+.menuHamburguer>span:nth-child(3) {
+    top: 16px;
+    z-index: 9999;
+    /* Efeito Neon Cores respectivas */
+    background: #1eff00;
+    box-shadow: 1px 1px 12px #1eff00;
+}
+
+/* Close The Btn 
+
+Efeito de fechar o menu 
+
+*/
+
+.menuHamburguer.is-active span:nth-child(1) {
+    top: 8px;
+    transform: rotate(-45deg);
+    z-index: 9999;
+}
+
+.menuHamburguer.is-active span:nth-child(2) {
+    top: 8px;
+    opacity: 0;
+    z-index: 9999;
+}
+
+.menuHamburguer.is-active span:nth-child(3) {
+    top: 8px;
+    transform: rotate(45deg);
+    z-index: 9999;
+}
+
+/* Menu Full-screen */
+
+.wrapper {
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 0vh;
+    width: 100vw;
+    transition: all 0.3s ease-in-out;
+    background-color: #000000;
+    text-align: center;
+}
+
+
+.wrapper ul {
+    margin-top: -900px;
+    z-index: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.wrapper ul.is-active {
+    margin-top: 25vh;
+    z-index: 11;
+    transition: all 0.5s ease-in-out;
+}
+
+.wrapper li {
+    padding: 20px;
+    font-size: 30px;
+}
+
+.wrapper a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.wrapper.is-active {
+    opacity: 1;
+    height: 100vh;
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+}
+
+/* efeito hover menu */
+
+.menu_link1:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    margin: 0 auto;
+    display: flex;
+    background-color: #ff00c8;
+    transition: .3s;
+}
+
+.menu_link2:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    margin: 0 auto;
+    display: flex;
+    background-color: #1eff00;
+    transition: .3s;
+}
+
+.menu_link3:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    margin: 0 auto;
+    display: flex;
+    background-color: #ff00c8;
+    transition: .3s;
+}
+
+.menu_link4:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    margin: 0 auto;
+    display: flex;
+    background-color: #1eff00;
+    transition: .3s;
+}
+
+
+.menu_link1:hover:after {
+    width: 4rem;
+}
+
+.menu_link2:hover:after {
+    width: 17rem;
+}
+
+.menu_link3:hover:after {
+    width: 13.5rem;
+}
+
+.menu_link4:hover:after {
+    width: 14rem;
+}
+
+
+
+
+.planetaText {
+    margin-top: 110px;
+    color: #fff !important;
+    font-size: 1.5rem;
+    text-align: justify;
+    width: 60vw;
+
+}
+
+/* Shoting Star */
+
+
+
+.starts {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1);
+    animation: animate 3s linear infinite;
+}
+
+/* star shooting */
+.starts::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg, #fff, transparent);
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: rotate(315deg) translateX(-1500px);
+        opacity: 0;
+    }
+}
+
+.starts:nth-child(1) {
+    top: 0;
+    right: 0;
+    left: initial;
+    animation-delay: 0;
+    animation-duration: 1s;
+}
+
+.starts:nth-child(2) {
+    top: 0;
+    right: 80px;
+    left: initial;
+    animation-delay: 0.2s;
+    animation-duration: 3s;
+}
+
+.starts:nth-child(3) {
+    top: 80px;
+    right: 0px;
+    left: initial;
+    animation-delay: 0.4s;
+    animation-duration: 2s;
+}
+
+.starts:nth-child(4) {
+    top: 0;
+    right: 180px;
+    left: initial;
+    animation-delay: 0.6s;
+    animation-duration: 1.5s;
+}
+
+.starts:nth-child(5) {
+    top: 0;
+    right: 400px;
+    left: initial;
+    animation-delay: 0.8s;
+    animation-duration: 2.5s;
+}
+
+.starts:nth-child(6) {
+    top: 0;
+    right: 600px;
+    left: initial;
+    animation-delay: 1s;
+    animation-duration: 3s;
+}
+
+.starts:nth-child(7) {
+    top: 300px;
+    right: 0px;
+    left: initial;
+    animation-delay: 1s;
+    animation-duration: 1.75s;
+}
+
+.starts:nth-child(8) {
+    top: 0px;
+    right: 700px;
+    left: initial;
+    animation-delay: 1.4s;
+    animation-duration: 1.25s;
+}
+
+.starts:nth-child(9) {
+    top: 0px;
+    right: 1000px;
+    left: initial;
+    animation-delay: 0.75s;
+    animation-duration: 2.25s;
+}
+
+.starts:nth-child(10) {
+    top: 0px;
+    right: 1000px;
+    left: initial;
+    animation-delay: 2.75s;
+    animation-duration: 2.25s;
+}
+
+
+
+
+
+
+#canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(5, 0, 20);
+    user-select: none;
+    overflow-x: hidden;
+}
+
+/* Animação de text *Apresentação da DAP*
+
+Estava Em Scss foi convertido para Css 
+
+*/
+
+figure {
+
+    /* Variáveis e configs Básicas */
+    --color: transparent;
+    --strokePink: #ff00c8;
+    --strokeGreen: #1eff00;
+    --strokePurple: #6200ff;
+    /*Cor nao ficou muito visível :/*/
+    --fontSize: 300px;
+    --fontMargin: 1px;
+    --interval: 7s;
+    --intervalSelva: 15s;
+    --strokeWidth: 5px;
+    --strokeWidthTextAboutDAP: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50vw;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+figure svg {
+    /* Estilizando SVG */
+    font-family: 'LemonMilkBold';
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+figure svg text {
+    /* Estilizando TEXT dentro do SVG */
+    text-transform: uppercase;
+    stroke-width: var(--strokeWidth);
+    stroke: var(--color);
+    font-size: calc(var(--fontSize) + 10px);
+    letter-spacing: -10px;
+}
+
+/* Teste para animação na logo DAP
+
+figure svg text.titleDap {
+    --fontSize: 840px;
+    --fontMargin: 900px;
+    letter-spacing: 10px;
+    
+} */
+
+svg text {
+    /* Configs Básicas */
+    text-transform: uppercase;
+    stroke-width: var(--strokeWidth);
+    stroke: var(--color);
+    font-size: calc(var(--fontSize) + 10px);
+    letter-spacing: -10px;
+}
+
+/* Adcionando Animações */
+
+svg text.firstText {
+    animation: SemanaSenacAni var(--interval) infinite alternate-reverse;
+    transform: translateY(calc(var(--fontMargin) - calc(var(--fontMargin) * 2)));
+}
+
+svg text:nth-child(2) {
+    animation: deDesignAni var(--interval) infinite alternate-reverse;
+    transform: translateY(calc(var(--fontMargin) - calc(var(--fontMargin) * 2)));
+}
+
+svg text:nth-child(3) {
+    animation: SemanaSenacAni var(--interval) infinite alternate-reverse;
+    transform: translateY(calc(var(--fontMargin) - calc(var(--fontMargin) * 2)));
+}
+
+svg text:nth-child(4) {
+    animation: deDesignAni var(--interval) infinite alternate-reverse;
+    transform: translateY(calc(var(--fontMargin) - calc(var(--fontMargin) * 2)));
+}
+
+svg text.textAboutDap {
+    --fontSize: 16px;
+    letter-spacing: 6px;
+    animation: textAboutDAP var(--interval) both;
+    transform: translateY(var(--fontMargin));
+    font-size: calc(var(--fontSize) + 5px);
+}
+
+svg text.textAboutDap:nth-child(2) {
+    --fontSize: 16px;
+    --fontMargin: 50px;
+    letter-spacing: 5px;
+    animation: textAboutDAP var(--interval) both;
+    transform: translateY(var(--fontMargin));
+    font-size: calc(var(--fontSize) + 4px);
+}
+
+svg text.textAboutDap:nth-child(3) {
+    --fontSize: 16px;
+    --fontMargin: 100px;
+    letter-spacing: 10px;
+    animation: textAboutDAP var(--interval) both;
+    transform: translateY(var(--fontMargin));
+    font-size: calc(var(--fontSize) + 5px);
+}
+
+
+
+/* Teste para animação na logo DAP 
+
+svg text:nth-child(5){
+    animation: titleDap var(--interval) infinite alternate-reverse;
+    transform: translateY(calc(var(--fontMargin) - calc(var(--fontMargin) * 2)));
+} */
+
+
+/* Configs básicas para o tamanho */
+
+.firstText {
+    --fontMargin: 300px;
+    letter-spacing: 5px;
+}
+
+.secondText {
+    --fontMargin: 100px;
+    letter-spacing: 70px;
+}
+
+
+.thirdText {
+    --fontMargin: -100px;
+    letter-spacing: 5px;
+}
+
+.forthText {
+    --fontMargin: -300px;
+    letter-spacing: 50px;
+}
+
+
+
+/* .textAboutDap {
+    
+} */
+
+/* SelvaGalaxia */
+
+svg text.others_parts {
+    animation: titleDap var(--intervalSelva) infinite alternate-reverse;
+    transform: translateY(calc(var(--fontMargin) - calc(var(--fontMargin) * 2)));
+}
+
+svg text.selva_galaxia {
+    animation: titleDap var(--intervalSelva) infinite alternate-reverse;
+    transform: translateY(calc(var(--fontMargin) - calc(var(--fontMargin) * 2)));
+}
+
+
+.selva_galaxia {
+    --fontSize: 50px;
+    --fontMargin: -20px;
+    --strokeWidth: 2px;
+    letter-spacing: 50px;
+}
+
+.others_parts {
+    --fontSize: 100px;
+    --fontMargin: 100px;
+    letter-spacing: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Keyframes com animações 
+
+Há possibilidade de fazer o text vazado Também
+
+O Nome das Animações como: 'SemanaSenacAni', se referencia a o que está escrito na TAG
+
+*/
+
+@keyframes SemanaSenacAni {
+    0% {
+        fill: transparent;
+        stroke: var(--strokeGreen);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 1;
+        transform: translateY(calc(var(--fontMargin) - calc(var(--fontMargin) * 3.5)));
+    }
+
+    5% {
+        fill: transparent;
+        stroke: var(--strokeGreen);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+    }
+
+    20% {
+        fill: transparent;
+        stroke: var(--strokeGreen);
+        stroke-width: 1;
+    }
+
+    30% {
+        fill: transparent;
+        stroke: var(--strokeGreen);
+        stroke-width: var(--strokeWidth);
+    }
+
+    40% {
+        fill: var(--strokeGreen);
+        stroke: var(--strokeGreen);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        opacity: 1;
+    }
+
+    50% {
+        fill: var(--strokeGreen);
+        stroke: var(--strokeGreen);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        opacity: 1;
+    }
+
+    59% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        opacity: 1;
+    }
+
+    60% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        opacity: 1;
+        stroke-width: var(--strokeWidth);
+    }
+
+    80% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-width: 1;
+    }
+
+    90% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-width: 1;
+    }
+
+    100% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 1;
+    }
+}
+
+@keyframes deDesignAni {
+    0% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 1;
+        transform: translateY(calc(var(--fontMargin) - calc(var(--fontMargin) * 3.5)));
+    }
+
+    5% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+    }
+
+    20% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-width: 1;
+    }
+
+    30% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-width: var(--strokeWidth);
+    }
+
+    40% {
+        fill: var(--strokePink);
+        stroke: var(--strokePink);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        opacity: 1;
+    }
+
+    50% {
+        fill: var(--strokePink);
+        stroke: var(--strokePink);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        opacity: 1;
+    }
+
+    59% {
+        fill: transparent;
+        stroke: var(--strokeGreen);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        opacity: 1;
+    }
+
+    60% {
+        fill: transparent;
+        stroke: var(--strokeGreen);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        opacity: 1;
+        stroke-width: var(--strokeWidth);
+    }
+
+    80% {
+        fill: transparent;
+        stroke: var(--strokeGreen);
+        stroke-width: 1;
+    }
+
+    90% {
+        fill: transparent;
+        stroke: var(--strokeGreen);
+        stroke-width: 1;
+    }
+
+    100% {
+        fill: transparent;
+        stroke: var(--strokeGreen);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 1;
+    }
+}
+
+@keyframes textAboutDAP {
+    0% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 1;
+    }
+
+    16% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+    }
+
+    33% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-width: 1;
+    }
+
+    50% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-width: var(--strokeWidthTextAboutDAP);
+    }
+
+    63% {
+        fill: var(--strokePink);
+        stroke: var(--strokePink);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        opacity: 1;
+    }
+
+    83% {
+        fill: var(--strokeGreen);
+        stroke: var(--strokeGreen);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        opacity: 1;
+    }
+
+    100% {
+        fill: white;
+        stroke: white;
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        opacity: 1;
+        stroke-width: var(--strokeWidthTextAboutDAP);
+    }
+}
+
+
+@keyframes titleDap {
+    0% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 1;
+        transform: translateY(calc(var(--fontMargin) - calc(var(--fontMargin) * 2)));
+    }
+
+    5% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+    }
+
+    20% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-width: 1;
+    }
+
+    30% {
+        fill: transparent;
+        stroke: var(--strokePink);
+        stroke-width: var(--strokeWidth);
+    }
+
+    40% {
+        fill: var(--strokePurple);
+        stroke: transparent;
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        opacity: 1;
+    }
+
+    50% {
+        fill: var(--strokePurple);
+        stroke: transparent;
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        opacity: 1;
+    }
+
+    60% {
+        fill: transparent;
+        stroke: var(--strokeGreen);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        opacity: 1;
+        stroke-width: var(--strokeWidth);
+    }
+
+    80% {
+        fill: transparent;
+        stroke: var(--strokeGreen);
+        stroke-width: 1;
+    }
+
+    90% {
+        fill: transparent;
+        stroke: var(--strokeGreen);
+        stroke-width: 1;
+    }
+
+    100% {
+        fill: transparent;
+        stroke: var(--strokeGreen);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 1;
+    }
+}
+
+
+
+/* FIM ANIMAÇÃO TEXT */
+
+
+/* Aparecido */
+
+.line_time {
+    position: absolute;
+    color: #FFF;
+    text-align: center;
+    z-index: 3;
+    width: 100vw;
+}
+
+.edition_years {
+    width: 100vw;
+    margin-top: 10rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.title_line_time {
+    margin: 40px 0;
+}
+
+.editions_previous_1 {
+    color: #ff00c8;
+}
+
+.editions_previous_2 {
+    color: #1eff00;
+}
+
+.editions_previous_1,
+.editions_previous_2 {
+    margin: 30px 0;
+    width: 30vw;
+    height: 5vh;
+    -webkit-transition: .3s ease-in;
+    -moz-transition: .3s ease-in;
+    -o-transition: .3s ease-in;
+    transition: .3s ease-in;
+    z-index: 3;
+}
+
+
+.editions_previous_1:hover,
+.editions_previous_2:hover {
+    background-image: none;
+    background-color: rgba(0, 0, 0, 0.486);
+    transform: scale(1.05);
+    -webkit-transition: .3s ease-out;
+    -moz-transition: .3s ease-out;
+    -o-transition: .3s ease-out;
+    transition: .3s ease-out;
+}
+
+.editions_previous_1 {
+    border-radius: 5% 50px 10px 5%;
+    margin-right: 40vw;
+    -webkit-box-shadow: -12px 14px 21px -5px #ff00c8;
+    box-shadow: -12px 1px 21px 5px #ff00c8;
+    background-image: url('/assets/imagens_ap/imagem1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.editions_previous_2 {
+    border-radius: 50px 5% 5% 10px;
+    margin-left: 40vw;
+    -webkit-box-shadow: 12px 14px 21px 5px #1eff00;
+    box-shadow: 12px 1px 21px 5px #1eff00;
+    background-image: url('/assets/imagens_ap/imagem2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.editions_previous_1 h1,
+.editions_previous_2 h1 {
+    font-size: 20px;
+    font-family: 'LemonMilkBold';
+}
+
+.editions_previous_1:hover h1,
+.editions_previous_2:hover h1 {
+    font-size: 20px;
+}
+
+.editions_previous_1 p,
+.editions_previous_2 p {
+    padding-top: 40px;
+    display: none;
+    font-family: 'LemonMilkBold';
+}
+
+.editions_previous_1:hover p,
+.editions_previous_2:hover p {
+    font-size: 12px;
+    display: block;
+    opacity: 1;
+}
+
+
+
+
+/* Fim Aparecido */
+
+/* Começo erick */
+.edicao_geral {
+    position: absolute;
+    z-index: 3;
+    color: white;
+}
+
+.container_top {
+    display: flex;
+    justify-content: space-between;
+    margin: 10rem auto 0 auto;
+    width: 70%;
+}
+
+.container_bottom {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 75%;
+}
+
+
+
+.bloco1_top {
+    border: 3px solid #ff00c8;
+    height: 5vh;
+    width: 14.5vw;
+    margin: 20px;
+}
+
+.bloco2_top {
+    border: 3px solid #1eff00;
+    height: 5vh;
+    width: 14.5vw;
+    margin: 20px;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.bloco3_top {
+    border: 3px solid #ff00c8;
+    height: 5vh;
+    width: 14.5vw;
+    margin: 20px;
+
+}
+
+.bloco1_bottom {
+    border: 3px solid #1eff00;
+    height: 5vh;
+    width: 14.5vw;
+    margin: 20px;
+    margin-left: 80px;
+}
+
+.bloco2_bottom {
+    border: 3px solid #ff00c8;
+    height: 5vh;
+    width: 14.5vw;
+    margin: 20px;
+    margin-left: 260px;
+
+}
+
+.bloco3_bottom {
+    border: 3px solid #1eff00;
+    height: 5vh;
+    width: 14.5vw;
+    margin: 20px;
+    margin-left: 250px;
+}
+/*responsividade das edições*/
+.bloco_date{
+    font-size: 2vw;
+}
+
+/* text area dia */
+
+#text_area_dia {
+    margin: 0 auto;
+    width: 100vw;
+    transition: .3s;
+}
+
+/* text area dia */
+
+
+/* mudando a cor do textos do blocos de edição */
+
+.text_bloco1,
+.text_bloco2 {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'LemonMilkBold';
+
+}
+
+.text_bloco1 {
+    z-index: 3;
+}
+
+.text_bloco2 {
+    z-index: 3;
+}
+
+.textdia1 {
+    text-align: center;
+    opacity: 1;
+    transition: .3s;
+}
+
+/* testando classes de sumir e aparecer */
+
+.hide {
+    opacity: 0;
+    transition: .3s;
+}
+
+.show {
+    opacity: 1;
+    transition: .3s;
+    font-size: 30px;
+    color: #1eff00;
+
+}
+
+.ani_show {
+    animation: opacity .3s both;
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* testando classes de sumir e aparecer */
+
+.text_bloco1:nth-child(1) a {
+    color: #1eff00;
+}
+
+.text_bloco1:nth-child(2) a {
+    color: #ff00c8;
+}
+
+.text_bloco1:nth-child(3) a {
+    color: #1eff00;
+}
+
+
+.text_bloco2:nth-child(1) a {
+    color: #ff00c8;
+}
+
+.text_bloco2:nth-child(2) a {
+    color: #1eff00;
+}
+
+.text_bloco2:nth-child(3) a {
+    color: #ff00c8;
+}
+
+/* FIM mudando a cor do textos do blocos de edição */
+
+.titulo_edicao {
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 50px;
+    color: #6200ff;
+}
+
+.texto_edicao {
+    font-size: 2w;
+    width: 50%;
+    margin: 60px auto;
+    text-align: justify;
+}
+
+/* fim erick */
+
+/* Parte Thiago */
+
+.location {
+    display: flex;
+    justify-content: space-between;
+    font-family: "LemonMilkBold";
+    z-index: 2;
+}
+
+#fundo_arvore {
+    background: url('../images/arvore__dap.png');
+    z-index: 2;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    opacity: 1;
+    background-size: 30%;
+}
+
+
+
+
+
+
+.location .logo_senac {
+    z-index: 2;
+
+    bottom: 0;
+
+}
+
+.sec_localizacao {
+    color: #fff;
+    padding-top: 10vh;
+    z-index: 3;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+
+.sec_localizacao h1 {
+    font-size: 50px;
+    color: #ff00c8;
+}
+
+.sec_localizacao p {
+    padding-top: 30vh;
+    font-size: 25px;
+    color: #1eff00;
+    margin: 0;
+}
+
+.footer {
+    position: absolute;
+    display: flex;
+    color: #ff00c8;
+    width: 100vw;
+    padding-top: 90vh;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-around;
+    opacity: 1;
+}
+
+.location .logo_senac img {
+    width: 100px;
+
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+
+    .logo img {
+        width: 150px;
+    }
+
+    figure {
+        margin-top: 40vh;
+    }
+
+    figure:nth-child(2) {
+        margin-top: 30vh;
+    }
+
+
+
+    /* .logo h1 {
+        color: #000;
+        font-size: 20px;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-left: 50px;
+    } */
+
+    .firstText {
+        --fontSize: 300px;
+        --fontMargin: 200px;
+        letter-spacing: 5px;
+    }
+
+    .secondText {
+        --fontSize: 300px;
+        --fontMargin: 50px;
+        letter-spacing: 70px;
+    }
+
+
+    .thirdText {
+        --fontSize: 300px;
+        --fontMargin: -50px;
+        letter-spacing: 5px;
+    }
+
+    .forthText {
+        --fontSize: 300px;
+        --fontMargin: -150px;
+        letter-spacing: 50px;
+    }
+
+
+
+    /* Titulos das outras partes */
+
+    .others_parts {
+        --fontSize: 150px;
+        --fontMargin: 155rem;
+        letter-spacing: 50px;
+    }
+
+
+
+    /* Titulos das outras partes */
+
+
+
+
+    svg text.textAboutDap {
+        --fontSize: 14px;
+        letter-spacing: 6px;
+        word-wrap: break-word;
+        animation: textAboutDAP var(--interval) both;
+        transform: translateY(var(--fontMargin));
+        font-size: calc(var(--fontSize) + 5px);
+    }
+
+    svg text.textAboutDap:nth-child(2) {
+        --fontSize: 14px;
+        --fontMargin: 50px;
+        letter-spacing: 5px;
+        word-wrap: break-word;
+        animation: textAboutDAP var(--interval) both;
+        transform: translateY(var(--fontMargin));
+        font-size: calc(var(--fontSize) + 4px);
+    }
+
+    svg text.textAboutDap:nth-child(3) {
+        --fontSize: 14px;
+        --fontMargin: 100px;
+        letter-spacing: 10px;
+        word-wrap: break-word;
+        animation: textAboutDAP var(--interval) both;
+        transform: translateY(var(--fontMargin));
+        font-size: calc(var(--fontSize) + 5px);
+    }
+
+    /* Inicio Aparecido */
+
+    .editions_previous_1,
+    .editions_previous_2 {
+        background-color: rgba(0, 0, 0, 0.726);
+        margin: 30px 0;
+        width: 70vw;
+    }
+
+    .editions_previous_1:hover,
+    .editions_previous_2:hover {
+        transform: scale(1.1);
+    }
+
+    .editions_previous_1 p,
+    .editions_previous_2 p {
+        background-color: #000;
+        box-shadow: -12px 1px 21px 5px #ff00c8;
+    }
+
+    /* Fim Aparecido */
+
+
+    /* parte Erick */
+
+
+    .edicao_geral {
+        margin-top: 10em;
+        z-index: 3;
+        color: white;
+    }
+
+
+    .container_top {
+        display: flex;
+        justify-content: space-between;
+        margin: 10rem auto 0 auto;
+        width: 90%;
+    }
+
+
+    .bloco1_top {
+        height: 3vh;
+        width: 30vw;
+        margin: 0px;
+        margin-left: 0px;
+    }
+
+    .bloco2_top {
+        height: 3vh;
+        width: 30vw;
+        margin: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .bloco3_top {
+        height: 3vh;
+        width: 30vw;
+        margin: 00px;
+
+    }
+
+    .bloco1_bottom {
+        height: 3vh;
+        width: 30vw;
+        margin: 0px;
+        margin-left: 0px;
+    }
+
+    .bloco2_bottom {
+        height: 3vh;
+        width: 30vw;
+        margin: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+
+    }
+
+    .bloco3_bottom {
+        height: 3vh;
+        width: 30vw;
+        margin: 0px;
+
+    }
+
+    .titulo_edicao {
+        text-align: center;
+        font-size: 1.2em;
+        margin-bottom: 50px;
+        margin-left: 6.5vw;
+    }
+
+
+
+    .texto_edicao {
+        margin-top: 25px;
+        text-align: justify;
+        font-size: 0.7rem;
+        width: 60%;
+    }
+
+    .text_bloco1,
+    .text_bloco2 {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    /* Parte Erick */
+
+    /* Parte Thiago */
+
+    .sec_localizacao h1 {
+        font-size: 3vw;
+
+    }
+
+    .sec_localizacao p {
+        font-size: 2vw;
+        margin: 10px;
+    }
+
+    .footer {
+        width: 100vw;
+        justify-content: space-around;
+        white-space: nowrap;
+        font-size: 10px;
+    }
+
+    #fundo_arvore {
+        background-size: 100%;
+        background-position-y: 10rem;
+    }
+
+
+
+}
